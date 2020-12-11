@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Review extends Component {
   render() {
@@ -10,4 +12,5 @@ class Review extends Component {
   }
 }
 
-export default Review;
+const putStateOnProps = (reduxState) => ({ reduxState });
+export default connect(putStateOnProps)(withRouter(Review));
