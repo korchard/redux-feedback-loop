@@ -9,9 +9,14 @@ class Support extends Component {
     }
 
   goToComments = () =>{
-    console.log('support', this.state.support);
-    this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support })
-    this.props.history.push("/comments");
+    if (this.state.support === '') {
+        alert('Please input a number before continuing!');
+        return 'No support entered, eh?';
+    } else {
+        console.log('support', this.state.support);
+        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support })
+        this.props.history.push("/comments");
+    }
   }
 
   handleChange = (event) => {
@@ -26,7 +31,8 @@ class Support extends Component {
       <div>
         <h2>How well are you being supported?</h2>
         <label htmlFor="support">Support?</label>
-        <input type="number" min="1" max="5" id="support" onChange={(event) => this.handleChange(event)} required/>
+        <input type="number" min="1" max="5" id="support" 
+                onChange={(event) => this.handleChange(event)} required/>
         <button onClick={this.goToComments}>Next question...</button>
       </div>
     );

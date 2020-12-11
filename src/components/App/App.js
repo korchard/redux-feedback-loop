@@ -18,6 +18,19 @@ class App extends Component {
   //   this.props.history.push('/feelings');
   // }
 
+  submitFeedback = (feedback) => {
+    console.log(`Adding feedback`, feedback);
+
+    axios.post('/feedback', feedback)
+    .then((response) => {
+      console.log('back from POST:', response.data) 
+      this.props.dispatch({ type: 'EMPTY_FEEDBACK'})
+    }).catch((error) => {
+      console.log(error);
+      alert('problem with POST');
+    }) // end axios
+  } // end submitFeedback
+
   render() {
     return (
       <div className="App">
@@ -45,10 +58,10 @@ class App extends Component {
             <Route path="/comments">
               <Comments/>
             </Route>
-            <Route path="/review">
-              <Review/>
+            <Route path="/review" >
+              <Review submitFeedback={this.submitFeedback}/>
             </Route>
-            <Route path="/submitted">
+            <Route path="/submitted" >
               <Submitted/>
             </Route>
         </Router>

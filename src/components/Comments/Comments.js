@@ -9,8 +9,13 @@ class Comments extends Component {
     }
 
   goToReview = () =>{
-    console.log('support', this.state.comments);
-    this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.comments })
+    if (this.state.comments === '') {
+       this.props.dispatch({ type: 'GET_FEEDBACK', payload: 'No comments provided.'})
+
+    } else {
+        console.log('comments', this.state.comments);
+        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.comments })
+    }
     this.props.history.push("/review");
   }
 

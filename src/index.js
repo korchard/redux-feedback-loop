@@ -13,6 +13,8 @@ const feedbackReducer = (state = [], action) => {
     console.log('payload', action.payload);
     if (action.type === 'GET_FEEDBACK') {
       return [...state, action.payload];
+    } else if (action.type === 'EMPTY_FEEDBACK') {
+        return state;
     } // end action type
     console.log('state', state);
     return state;

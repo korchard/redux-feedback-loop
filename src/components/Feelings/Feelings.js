@@ -9,9 +9,14 @@ class Feelings extends Component {
     }
 
   goToUnderstanding = () =>{
-    console.log('feelings', this.state.feelings);
-    this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.feelings })
-    this.props.history.push("/understanding");
+    if (this.state.feelings === '') {
+        alert('Please input a number before continuing!');
+        return 'No feelings entered, eh?';
+    } else {
+        console.log('feelings', this.state.feelings);
+        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.feelings })
+        this.props.history.push("/understanding");
+    }
   }
 
   handleChange = (event) => {
@@ -26,7 +31,8 @@ class Feelings extends Component {
       <div>
         <h2>How are you feeling today?</h2>
         <label htmlFor="feelings">Feelings?</label>
-        <input type="number" min="1" max="5" id="feelings" onChange={(event) => this.handleChange(event)} required/>
+        <input type="number" min="1" max="5" id="feelings" 
+                onChange={(event) => this.handleChange(event)} />
         <button onClick={this.goToUnderstanding}>Next question...</button>
       </div>
     );
