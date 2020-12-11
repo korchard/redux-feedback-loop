@@ -11,8 +11,8 @@ class Feelings extends Component {
     return (
       <div>
         <h2>How are you feeling today?</h2>
-        <label>Feelings?</label>
-        <input type="number" min="1" max="5" />
+        <label htmlFor="feelings">Feelings?</label>
+        <input type="number" min="1" max="5" id="feelings" required/>
         <button onClick={this.goToUnderstanding}>Next question...</button>
       </div>
     );
