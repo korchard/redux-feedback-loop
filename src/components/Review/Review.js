@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import './Review.css';
 
 import Button from '@material-ui/core/Button';
@@ -14,9 +15,20 @@ class Review extends Component {
     this.props.history.push("/comments");
 }
 
-  goToSubmitted = (review) =>{
-    console.log('submitted');
-    this.props.submitFeedback(review);
+  goToSubmitted = () =>{
+    console.log('Adding feedback');
+
+    axios.post('/feedback', {feelings: this.props.reduxState.feelingsReducer,
+    understanding: this.props.reduxState.understandingReducer,
+    support: this.props.reduxState.supportReducer,
+    comments: this.props.reduxState.commentsReducer})
+    .then((response) => {
+      console.log('back from POST:', response) 
+    }).catch((error) => {
+      console.log(error);
+      alert('problem with POST');
+    }) // end axios
+    
     this.props.dispatch({ type: 'RESET_FEEDBACK' })
     this.props.history.push("/submitted");
   }

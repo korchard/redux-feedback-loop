@@ -16,11 +16,11 @@ class SubmitSuccess extends Component {
   render() {
     return (
       <div>
-        <Card>
-          <CardContent>
+        <Card className="card">
+          <CardContent className="cardContent">
             <h2>Thank you for your Feedback!</h2>
           </CardContent>
-          <CardActions>
+          <CardActions className="button">
           <Button variant="outlined" color="primary"
               onClick={this.goToBeginning}>Retake the Feedback Survey!</Button>
           </CardActions>
