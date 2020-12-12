@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './Understanding.css';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -49,9 +50,9 @@ class Understanding extends Component {
             </CardContent>
             <CardActions>
             <Button variant="outlined" color="primary" className="button"
-                onClick={this.goToSupport}>Next...</Button>
-            <Button variant="outlined" color="primary" className="button"
                 onClick={this.goToFeelings}>Previous...</Button>
+            <Button variant="outlined" color="primary" className="button"
+                onClick={this.goToSupport}>Next...</Button>
             </CardActions>
           </Card>
       </div>

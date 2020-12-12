@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './Comments.css';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 class Comments extends Component {
 
@@ -37,14 +41,20 @@ class Comments extends Component {
   render() {
     return (
       <div>
-        <h2>Any comments you want to add?</h2>
-        <TextField id="standard-basic" label="Comments?" 
-            type="text" 
-            onChange={(event) => this.handleChange(event)} />
-        <Button variant="outlined" color="primary"
-            onClick={this.goToReview}>Next...</Button>
-        <Button variant="outlined" color="primary"
-            onClick={this.goToSupport}>Previous...</Button>
+        <Card className="card">
+          <CardContent className="cardContent">
+          <h2>Any comments you want to add?</h2>
+          <TextField id="standard-basic" label="Comments?" 
+              type="text" 
+              onChange={(event) => this.handleChange(event)} />
+          </CardContent>
+          <CardActions>
+          <Button variant="outlined" color="primary" className="button"
+              onClick={this.goToSupport}>Previous...</Button>
+          <Button variant="outlined" color="primary" className="button"
+              onClick={this.goToReview}>Next...</Button>
+            </CardActions>
+        </Card>
       </div>
     );
   }

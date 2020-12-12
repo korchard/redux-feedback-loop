@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './Support.css';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 class Support extends Component {
 
@@ -37,14 +41,20 @@ class Support extends Component {
   render() {
     return (
       <div>
-        <h2>How well are you being supported?</h2>
-        <TextField id="standard-basic" label="Support?" 
-            type="number" min="1" max="5"
-            onChange={(event) => this.handleChange(event)} />
-        <Button variant="outlined" color="primary"
-            onClick={this.goToComments}>Next...</Button>
-        <Button variant="outlined" color="primary"
-            onClick={this.goToUnderstanding}>Previous...</Button>
+          <Card className="card">
+              <CardContent className="cardContent">
+            <h2>How well are you being supported?</h2>
+            <TextField id="standard-basic" label="Support?" 
+                type="number" min="1" max="5"
+                onChange={(event) => this.handleChange(event)} />
+                </CardContent>
+            <CardActions>
+            <Button variant="outlined" color="primary" className="button"
+                onClick={this.goToUnderstanding}>Previous...</Button>
+            <Button variant="outlined" color="primary" className="button"
+                onClick={this.goToComments}>Next...</Button>
+            </CardActions>
+          </Card>
       </div>
     );
   }
