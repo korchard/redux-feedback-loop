@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import './Feelings.css';
+
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
 class Feelings extends Component {
 
@@ -29,11 +36,18 @@ class Feelings extends Component {
   render() {
     return (
       <div>
-        <h2>How are you feeling today?</h2>
-        <label htmlFor="feelings">Feelings?</label>
-        <input type="number" min="1" max="5" id="feelings" 
-                onChange={(event) => this.handleChange(event)} />
-        <button onClick={this.goToUnderstanding}>Next question...</button>
+          <Card className="card">
+             <CardContent className="cardContent">
+                <h2>How are you feeling today?</h2>
+                <TextField id="standard-basic" label="Feelings?" 
+                    type="number" min="1" max="5"
+                    onChange={(event) => this.handleChange(event)} />
+             </CardContent>
+             <CardActions>
+                <Button variant="outlined" color="primary" className="button"
+                    onClick={this.goToUnderstanding}>Next...</Button>
+            </CardActions>
+        </Card>
       </div>
     );
   }

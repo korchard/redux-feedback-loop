@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+
 class Understanding extends Component {
 
     state = {
         understanding: ''
     }
+
+//   goToFeelings = () => {
+//       this.props.history.push("/feelings");
+//       this.props.dispatch({ type: 'EDIT_FEEDBACK_0' })
+//   }
 
   goToSupport = () =>{
     if (this.state.understanding === '') {
@@ -29,11 +40,20 @@ class Understanding extends Component {
   render() {
     return (
       <div>
-        <h2>How well are you understanding the content?</h2>
-        <label htmlFor="understanding">Understanding?</label>
-        <input type="number" min="1" max="5" id="understanding" 
+          <Card className="card">
+            <CardContent className="cardContent">
+            <h2>How well are you understanding the content?</h2>
+            <TextField id="standard-basic" label="Understanding?" 
+                type="number" min="1" max="5"
                 onChange={(event) => this.handleChange(event)} />
-        <button onClick={this.goToSupport}>Next question...</button>
+            </CardContent>
+            <CardActions>
+            <Button variant="outlined" color="primary" className="button"
+                onClick={this.goToSupport}>Next...</Button>
+            <Button variant="outlined" color="primary" className="button"
+                onClick={this.goToFeelings}>Previous...</Button>
+            </CardActions>
+          </Card>
       </div>
     );
   }

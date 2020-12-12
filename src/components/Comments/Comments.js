@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 class Comments extends Component {
 
     state = {
         comments: ''
     }
+
+    // goToUnderstanding = () => {
+    //     this.props.history.push("/support");
+    //     this.props.dispatch({ type: 'EDIT_FEEDBACK_2' })
+    // }
 
   goToReview = () =>{
     if (this.state.comments === '') {
@@ -30,9 +38,13 @@ class Comments extends Component {
     return (
       <div>
         <h2>Any comments you want to add?</h2>
-        <label htmlFor="comments">Comments?</label>
-        <input type="text" id="comments" onChange={(event) => this.handleChange(event)} />
-        <button onClick={this.goToReview}>Ready for Review...</button>
+        <TextField id="standard-basic" label="Comments?" 
+            type="text" 
+            onChange={(event) => this.handleChange(event)} />
+        <Button variant="outlined" color="primary"
+            onClick={this.goToReview}>Next...</Button>
+        <Button variant="outlined" color="primary"
+            onClick={this.goToSupport}>Previous...</Button>
       </div>
     );
   }

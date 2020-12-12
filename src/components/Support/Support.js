@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 class Support extends Component {
 
     state = {
         support: ''
     }
+
+    // goToUnderstanding = () => {
+    //     this.props.history.push("/understanding");
+    //     this.props.dispatch({ type: 'EDIT_FEEDBACK_1' })
+    // }
 
   goToComments = () =>{
     if (this.state.support === '') {
@@ -30,10 +38,13 @@ class Support extends Component {
     return (
       <div>
         <h2>How well are you being supported?</h2>
-        <label htmlFor="support">Support?</label>
-        <input type="number" min="1" max="5" id="support" 
-                onChange={(event) => this.handleChange(event)} required/>
-        <button onClick={this.goToComments}>Next question...</button>
+        <TextField id="standard-basic" label="Support?" 
+            type="number" min="1" max="5"
+            onChange={(event) => this.handleChange(event)} />
+        <Button variant="outlined" color="primary"
+            onClick={this.goToComments}>Next...</Button>
+        <Button variant="outlined" color="primary"
+            onClick={this.goToUnderstanding}>Previous...</Button>
       </div>
     );
   }

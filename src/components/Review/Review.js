@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Button from '@material-ui/core/Button';
+
 class Review extends Component {
+
+  // goToComments = () => {
+  //     this.props.history.push("/comments");
+  //     this.props.dispatch({ type: 'EDIT_FEEDBACK_3' })
+  // }
 
   goToSubmitted = (review) =>{
     console.log('submitted');
@@ -19,8 +26,10 @@ class Review extends Component {
           <p>Understanding: {this.props.review[1]}</p>
           <p>Support: {this.props.review[2]}</p>
           <p>Comments: {this.props.review[3]}</p>
-          
-          <button onClick={() => this.goToSubmitted(this.props.review)}>Submit</button>
+          <Button variant="outlined" color="primary"
+            onClick={this.goToComments}>Previous...</Button>
+          <Button variant="outlined" color="primary"
+            onClick={() => this.goToSubmitted(this.props.review)}>Submit</Button>
       </div>
     );
   }

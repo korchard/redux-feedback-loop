@@ -13,6 +13,14 @@ const feedbackReducer = (state = [], action) => {
     console.log('payload', action.payload);
     if (action.type === 'GET_FEEDBACK') {
       return [...state, action.payload];
+    // } else if (action.type === 'EDIT_FEEDBACK_0') {
+    //     return state.filter(element => state !== element[0]);
+    // } else if (action.type === 'EDIT_FEEDBACK_1') {
+    //     return [...state].pop();
+    // } else if (action.type === 'EDIT_FEEDBACK_2') {
+    //     return state.filter(element => state != element[2]);
+    // } else if (action.type === 'EDIT_FEEDBACK_3') {
+    //     return state.filter(element => state != element[3]);
     } else if (action.type === 'EMPTY_FEEDBACK') {
         return state;
     } // end action type
