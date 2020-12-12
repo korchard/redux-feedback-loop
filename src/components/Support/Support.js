@@ -14,7 +14,7 @@ class Support extends Component {
         return 'No support entered, eh?';
     } else {
         console.log('support', this.state.support);
-        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support })
+        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support });
         this.props.history.push("/comments");
     }
   }

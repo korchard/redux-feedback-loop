@@ -4,6 +4,13 @@ import { withRouter } from 'react-router-dom';
 
 class Review extends Component {
 
+  goToSubmitted = (review) =>{
+    console.log('submitted');
+    this.props.submitFeedback(review);
+    this.props.dispatch({ type: 'EMPTY_FEEDBACK' })
+    this.props.history.push("/submitted");
+  }
+
   render() {
     return (
       <div>
@@ -12,7 +19,8 @@ class Review extends Component {
           <p>Understanding: {this.props.review[1]}</p>
           <p>Support: {this.props.review[2]}</p>
           <p>Comments: {this.props.review[3]}</p>
-          <button onClick={() => this.props.submitFeedback(this.props.review)}>Submit</button>
+          
+          <button onClick={() => this.goToSubmitted(this.props.review)}>Submit</button>
       </div>
     );
   }

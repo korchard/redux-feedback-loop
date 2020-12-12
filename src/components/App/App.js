@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 
-import { HashRouter as Router, Route, Link } from 'react-router-dom'; 
+import { HashRouter as Router, Route } from 'react-router-dom'; 
 
-// import Admin from '../Admin/Admin';
+import Home from '../Home/Home';
+import Admin from '../Admin/Admin';
 import Feelings from '../Feelings/Feelings';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
@@ -14,9 +15,7 @@ import Submitted from '../Submitted/Submitted';
 
 class App extends Component {
 
-  // goToFeelings = () => {
-  //   this.props.history.push('/feelings');
-  // }
+  getPrevious
 
   submitFeedback = (feedback) => {
     console.log(`Adding feedback`, feedback);
@@ -24,7 +23,6 @@ class App extends Component {
     axios.post('/feedback', feedback)
     .then((response) => {
       console.log('back from POST:', response.data) 
-      this.props.dispatch({ type: 'EMPTY_FEEDBACK'})
     }).catch((error) => {
       console.log(error);
       alert('problem with POST');
@@ -40,12 +38,10 @@ class App extends Component {
             <h4><i>Don't forget it!</i></h4>
           </header>
           <br/>
-            {/* <Link to="/admin"></Link>
-            <Route>
+            <Route exact path="/" component={Home}/>
+            <Route path="/admin">
               <Admin/>
-            </Route> */}
-            {/* <button onClick={this.goToFeelings}>Begin Feedback...</button> */}
-            <Link to="/feelings">Begin Feedback...</Link>
+            </Route>
             <Route path="/feelings">
               <Feelings/>
             </Route>

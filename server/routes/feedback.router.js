@@ -3,33 +3,34 @@ const router = express.Router();
 
 const pool = require('../modules/pool');
 
-// Get all books
+// GET ROUTE
 router.get('/', (req, res) => {
-  let queryText = 'SELECT title, author FROM "books" ORDER BY "title";';
-  pool.query(queryText).then(result => {
-    // Sends back the results in an object
-    res.send(result.rows);
-  })
-  .catch(error => {
-    console.log('error getting books', error);
-    res.sendStatus(500);
-  });
-});
-
-router.post('/',  (req, res) => {
-    let newBook = req.body;
-    console.log(`Adding book`, newBook);
-  
-    let queryText = `INSERT INTO "books" ("author", "title")
-                     VALUES ($1, $2);`;
-    pool.query(queryText, [newBook.author, newBook.title])
-      .then(result => {
-        res.sendStatus(201);
-      })
-      .catch(error => {
-        console.log(`Error adding new book`, error);
+    let sqlText = `SELECT * FROM "feedback" ORDER BY "date" DESC;`;
+    pool.query(sqlText)
+    .then((result) => {
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log('Bad new bears getting the data...', error);
         res.sendStatus(500);
-      });
-  });
+    });
+});
+  
+// POST ROUTE
+router.post('/',  (req, res) => {
+    let feedback = req.body;
+    console.log(`Adding feedback`, feedback);
+    
+    let sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+                       VALUES ($1, $2, $3, $4);`;
+    pool.query(sqlText, [feedback[0], feedback[1], feedback[2], feedback[3]])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log('Bad new bears getting the data...', error);
+            res.sendStatus(500);
+        });
+}); 
 
-  module.exports = router;
+module.exports = router;
