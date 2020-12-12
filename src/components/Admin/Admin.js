@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 class Admin extends Component {
 
   state = {
@@ -44,9 +52,36 @@ class Admin extends Component {
   render() {
     return (
       <div>
-        {/* {this.props.feedback.map((item) => 
-                // <GalleryItem item={item} key={image.id} addLoves={this.props.addLoves} removeImage={this.props.removeImage}/>
-            )} */}
+        <Paper className={root}>
+          <Table className={table}>
+            <TableHead>
+              <TableRow>
+                <TableCell>&nbsp;</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell align="right">Feeling</TableCell>
+                <TableCell align="right">Understanding</TableCell>
+                <TableCell align="right">Support</TableCell>
+                <TableCell align="right">Comments</TableCell>
+                <TableCell align="right">&nbsp;</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.props.feedback.map(row => (
+              <TableRow key={feedback.id}>
+                <TableCell component="th" scope="feedback">
+                    {feedback.flagged}
+                </TableCell>
+                <TableCell align="right">{feedback.date}</TableCell>
+                <TableCell align="right">{feedback.feelings}</TableCell>
+                <TableCell align="right">{feedback.understanding}</TableCell>
+                <TableCell align="right">{feedback.support}</TableCell>
+                <TableCell align="right">{feedback.comments}</TableCell>
+                <TableCell align="right"><Button onClick={() => this.deleteFeedback(feedback.id)}>Remove</Button></TableCell>
+              </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Paper>
       </div>
     );
   }
