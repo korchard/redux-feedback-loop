@@ -33,6 +33,20 @@ router.post('/',  (req, res) => {
         });
 }); 
 
+// PUT Route
+router.put('/:id', (req, res) => {
+    let id = req.params.id; 
+    const sqlText = `UPDATE "feedback" SET "flagged" = true WHERE id = $1;`;
+    
+    pool.query(sqlText, [id])
+        .then((result) => {
+            res.sendStatus(200); // sends an OK - this was updated in DB to client-side
+        }).catch((error) => {
+            console.log('Error when adding likes...', error)
+            res.sendStatus(500); // Good server always responds
+        }) 
+}); // END PUT Route
+
 // DELETE Route
 router.delete('/:id', (req, res) => {
     let id = req.params.id; 
