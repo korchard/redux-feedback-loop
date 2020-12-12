@@ -4,8 +4,10 @@
 
 .cardContent {
     text-align: center;
+    color: #033076;
 }
 
 .button {
     text-align: center;
+    justify-content: center
 }

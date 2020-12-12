@@ -15,18 +15,17 @@ class Support extends Component {
         support: ''
     }
 
-    // goToUnderstanding = () => {
-    //     this.props.history.push("/understanding");
-    //     this.props.dispatch({ type: 'EDIT_FEEDBACK_1' })
-    // }
+    goToUnderstanding = () => {
+        this.props.history.push("/understanding");
+    }
 
   goToComments = () =>{
-    if (this.state.support === '') {
-        alert('Please input a number before continuing!');
+    if (this.state.support === '' || this.state.support < 1 || this.state.support > 5) {
+        alert('Please input a number between 1 - 5 before continuing!');
         return 'No support entered, eh?';
     } else {
         console.log('support', this.state.support);
-        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support });
+        this.props.dispatch({ type: 'GET_SUPPORT', payload: this.state.support });
         this.props.history.push("/comments");
     }
   }
@@ -48,10 +47,10 @@ class Support extends Component {
                 type="number" min="1" max="5"
                 onChange={(event) => this.handleChange(event)} />
                 </CardContent>
-            <CardActions>
-            <Button variant="outlined" color="primary" className="button"
+            <CardActions className="button">
+            <Button variant="outlined" color="primary" 
                 onClick={this.goToUnderstanding}>Previous...</Button>
-            <Button variant="outlined" color="primary" className="button"
+            <Button variant="outlined" color="primary" 
                 onClick={this.goToComments}>Next...</Button>
             </CardActions>
           </Card>

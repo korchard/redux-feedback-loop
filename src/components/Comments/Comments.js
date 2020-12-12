@@ -15,18 +15,17 @@ class Comments extends Component {
         comments: ''
     }
 
-    // goToUnderstanding = () => {
-    //     this.props.history.push("/support");
-    //     this.props.dispatch({ type: 'EDIT_FEEDBACK_2' })
-    // }
+    goToSupport = () => {
+        this.props.history.push("/support");
+    }
 
   goToReview = () =>{
-    if (this.state.comments === '') {
-       this.props.dispatch({ type: 'GET_FEEDBACK', payload: 'No comments provided.'})
+    if (this.state.comments === '' || this.state.comments < 1 || this.state.comments > 5) {
+       this.props.dispatch({ type: 'GET_COMMENTS', payload: 'No comments provided.'})
 
     } else {
         console.log('comments', this.state.comments);
-        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.comments })
+        this.props.dispatch({ type: 'GET_COMMENTS', payload: this.state.comments })
     }
     this.props.history.push("/review");
   }
@@ -48,10 +47,10 @@ class Comments extends Component {
               type="text" 
               onChange={(event) => this.handleChange(event)} />
           </CardContent>
-          <CardActions>
-          <Button variant="outlined" color="primary" className="button"
+          <CardActions className="button">
+          <Button variant="outlined" color="primary" 
               onClick={this.goToSupport}>Previous...</Button>
-          <Button variant="outlined" color="primary" className="button"
+          <Button variant="outlined" color="primary" 
               onClick={this.goToReview}>Next...</Button>
             </CardActions>
         </Card>

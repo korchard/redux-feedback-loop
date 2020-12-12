@@ -10,15 +10,14 @@ import CardContent from '@material-ui/core/CardContent';
 
 class Review extends Component {
 
-  // goToComments = () => {
-  //     this.props.history.push("/comments");
-  //     this.props.dispatch({ type: 'EDIT_FEEDBACK_3' })
-  // }
+  goToComments = () => {
+    this.props.history.push("/comments");
+}
 
   goToSubmitted = (review) =>{
     console.log('submitted');
     this.props.submitFeedback(review);
-    this.props.dispatch({ type: 'EMPTY_FEEDBACK' })
+    this.props.dispatch({ type: 'RESET_FEEDBACK' })
     this.props.history.push("/submitted");
   }
 
@@ -28,15 +27,15 @@ class Review extends Component {
         <Card className="card">
           <CardContent className="cardContent">
           <h2>Review Your Feedback...</h2>
-            <p>Feelings: {this.props.review[0]}</p>
-            <p>Understanding: {this.props.review[1]}</p>
-            <p>Support: {this.props.review[2]}</p>
-            <p>Comments: {this.props.review[3]}</p>
+            <p>Feelings: {this.props.reduxState.feelingsReducer}</p>
+            <p>Understanding: {this.props.reduxState.understandingReducer}</p>
+            <p>Support: {this.props.reduxState.supportReducer}</p>
+            <p>Comments: {this.props.reduxState.commentsReducer}</p>
           </CardContent>
-          <CardActions>
-            <Button variant="outlined" color="primary" className="button"
+          <CardActions className="button">
+            <Button variant="outlined" color="primary" 
               onClick={this.goToComments}>Previous...</Button>
-            <Button variant="outlined" color="primary" className="button"
+            <Button variant="outlined" color="primary" 
               onClick={() => this.goToSubmitted(this.props.review)}>Submit</Button>
           </CardActions>
         </Card>
@@ -46,5 +45,7 @@ class Review extends Component {
 }
 
 const putStateOnProps = (reduxState) => ({ 
-  review: reduxState.feedbackReducer });
+    reduxState 
+});
+
 export default connect(putStateOnProps)(withRouter(Review));

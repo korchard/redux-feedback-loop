@@ -16,12 +16,12 @@ class Feelings extends Component {
     }
 
   goToUnderstanding = () =>{
-    if (this.state.feelings === '') {
-        alert('Please input a number before continuing!');
+    if (this.state.feelings === '' || this.state.feelings < 1 || this.state.feelings > 5) {
+        alert('Please input a number between 1 - 5 before continuing!');
         return 'No feelings entered, eh?';
     } else {
         console.log('feelings', this.state.feelings);
-        this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.feelings })
+        this.props.dispatch({ type: 'GET_FEELINGS', payload: this.state.feelings })
         this.props.history.push("/understanding");
     }
   }
@@ -43,8 +43,8 @@ class Feelings extends Component {
                     type="number" min="1" max="5"
                     onChange={(event) => this.handleChange(event)} />
              </CardContent>
-             <CardActions>
-                <Button variant="outlined" color="primary" className="button"
+             <CardActions className="button">
+                <Button variant="outlined" color="primary"
                     onClick={this.goToUnderstanding}>Next...</Button>
             </CardActions>
         </Card>

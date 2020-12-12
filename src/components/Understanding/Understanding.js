@@ -15,18 +15,17 @@ class Understanding extends Component {
         understanding: ''
     }
 
-//   goToFeelings = () => {
-//       this.props.history.push("/feelings");
-//       this.props.dispatch({ type: 'EDIT_FEEDBACK_0' })
-//   }
+  goToFeelings = () => {
+      this.props.history.push("/feelings");
+  }
 
   goToSupport = () =>{
-    if (this.state.understanding === '') {
-        alert('Please input a number before continuing!');
+    if (this.state.understanding === '' || this.state.understanding < 1 || this.state.understanding > 5) {
+        alert('Please input a number between 1 - 5 before continuing!');
         return 'No understanding entered, eh?';
     } else {
       console.log('understanding', this.state.understanding);
-      this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.understanding })
+      this.props.dispatch({ type: 'GET_UNDERSTANDING', payload: this.state.understanding })
       this.props.history.push("/support");
     }
   }
@@ -48,10 +47,10 @@ class Understanding extends Component {
                 type="number" min="1" max="5"
                 onChange={(event) => this.handleChange(event)} />
             </CardContent>
-            <CardActions>
-            <Button variant="outlined" color="primary" className="button"
+            <CardActions className="button">
+            <Button variant="outlined" color="primary" 
                 onClick={this.goToFeelings}>Previous...</Button>
-            <Button variant="outlined" color="primary" className="button"
+            <Button variant="outlined" color="primary" 
                 onClick={this.goToSupport}>Next...</Button>
             </CardActions>
           </Card>

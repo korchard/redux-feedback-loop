@@ -5,8 +5,16 @@
 
 .cardContent {
     text-align: center;
+    color: #033076;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+#standard-basic {
+    margin-top: 2em;
 }
 
 .button {
     text-align: center;
+    justify-content: center;
 }

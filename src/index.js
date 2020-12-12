@@ -9,28 +9,48 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; 
 import logger from 'redux-logger';
 
-const feedbackReducer = (state = [], action) => {
-    console.log('payload', action.payload);
-    if (action.type === 'GET_FEEDBACK') {
-      return [...state, action.payload];
-    // } else if (action.type === 'EDIT_FEEDBACK_0') {
-    //     return state.filter(element => state !== element[0]);
-    // } else if (action.type === 'EDIT_FEEDBACK_1') {
-    //     return [...state].pop();
-    // } else if (action.type === 'EDIT_FEEDBACK_2') {
-    //     return state.filter(element => state != element[2]);
-    // } else if (action.type === 'EDIT_FEEDBACK_3') {
-    //     return state.filter(element => state != element[3]);
-    } else if (action.type === 'EMPTY_FEEDBACK') {
-        return state;
-    } // end action type
-    console.log('state', state);
+const feelingsReducer = (state=[], action) => {
+    if (action.type === 'GET_FEELINGS') {
+        return action.payload
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return state = [];
+    }
     return state;
+}
+
+const understandingReducer = (state=[], action) => {
+  if (action.type === 'GET_UNDERSTANDING') {
+      return action.payload
+  } else if (action.type === 'RESET_FEEDBACK') {
+      return state = [];
   }
+  return state;
+}
+
+const supportReducer = (state=[], action) => {
+  if (action.type === 'GET_SUPPORT') {
+      return action.payload
+  } else if (action.type === 'RESET_FEEDBACK') {
+      return state = [];
+  }
+  return state;
+}
+
+const commentsReducer = (state=[], action) => {
+  if (action.type === 'GET_COMMENTS') {
+      return action.payload
+  } else if (action.type === 'RESET_FEEDBACK') {
+      return state = [];
+  }
+  return state;
+}
   
   const reduxStore = createStore(
     combineReducers({
-      feedbackReducer,
+      feelingsReducer,
+      understandingReducer,
+      supportReducer,
+      commentsReducer
     }),
     applyMiddleware(logger)
   );
