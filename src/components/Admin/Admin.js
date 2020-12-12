@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { StylesProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -36,7 +37,7 @@ class Admin extends Component {
 
   // DELETE ROUTE
   deleteFeedback = (id) => { 
-    console.log('in deleteFeedback');
+    console.log('in deleteFeedback', id);
 
     axios.delete(`/feedback/${id}`)
     .then((response) => {
@@ -52,36 +53,34 @@ class Admin extends Component {
   render() {
     return (
       <div>
-        <Paper className={root}>
-          <Table className={table}>
-            <TableHead>
-              <TableRow>
-                <TableCell>&nbsp;</TableCell>
-                <TableCell>Date</TableCell>
-                <TableCell align="right">Feeling</TableCell>
-                <TableCell align="right">Understanding</TableCell>
-                <TableCell align="right">Support</TableCell>
-                <TableCell align="right">Comments</TableCell>
-                <TableCell align="right">&nbsp;</TableCell>
+        <StylesProvider injectFirst>
+        <Paper className="root">
+          <Table className="table">
+            <TableHead className="thead">
+              <TableRow className="thead">
+                <TableCell align="center">Date</TableCell>
+                <TableCell align="center">Feeling</TableCell>
+                <TableCell align="center">Understanding</TableCell>
+                <TableCell align="center">Support</TableCell>
+                <TableCell align="center">Comments</TableCell>
+                <TableCell align="center">&nbsp;</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
-              {this.props.feedback.map(row => (
+            <TableBody className="tbody">
+              {this.state.feedback.map(feedback => (
               <TableRow key={feedback.id}>
-                <TableCell component="th" scope="feedback">
-                    {feedback.flagged}
-                </TableCell>
-                <TableCell align="right">{feedback.date}</TableCell>
-                <TableCell align="right">{feedback.feelings}</TableCell>
-                <TableCell align="right">{feedback.understanding}</TableCell>
-                <TableCell align="right">{feedback.support}</TableCell>
-                <TableCell align="right">{feedback.comments}</TableCell>
-                <TableCell align="right"><Button onClick={() => this.deleteFeedback(feedback.id)}>Remove</Button></TableCell>
+                <TableCell align="center">{feedback.date}</TableCell>
+                <TableCell align="center">{feedback.feeling}</TableCell>
+                <TableCell align="center">{feedback.understanding}</TableCell>
+                <TableCell align="center">{feedback.support}</TableCell>
+                <TableCell align="center">{feedback.comments}</TableCell>
+                <TableCell align="center"><Button onClick={() => this.deleteFeedback(feedback.id)}>Remove</Button></TableCell>
               </TableRow>
               ))}
             </TableBody>
           </Table>
         </Paper>
+        </StylesProvider>
       </div>
     );
   }
