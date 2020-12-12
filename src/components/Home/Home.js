@@ -7,7 +7,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="linkArea">
             <Link to="/feelings" className="link">Begin the feedback survey...</Link>
       </div>
     );
