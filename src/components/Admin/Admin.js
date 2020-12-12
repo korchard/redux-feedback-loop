@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AssistantPhotoIcon from '@material-ui/icons/AssistantPhoto';
+import DoneIcon from '@material-ui/icons/Done';
 
 class Admin extends Component {
 
@@ -91,7 +92,7 @@ class Admin extends Component {
               <TableRow key={feedback.id}>
                 <TableCell align="center">{feedback.flagged  ? 
                   (<AssistantPhotoIcon/>) :
-                  (<Button onClick={() => this.flagFeedback(feedback.id)}></Button>)
+                  (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
                   }</TableCell>
                 <TableCell align="center">{feedback.date}</TableCell>
                 <TableCell align="center">{feedback.feeling}</TableCell>
