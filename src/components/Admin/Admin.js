@@ -23,19 +23,21 @@ class Admin extends Component {
 
   componentDidMount() {
     this.getFeedback(); // displays when DOM is refreshed
+    this.formatDate(this.state.feedback);
   } // end componentDidMount 
 
+  // CANNOT FIGURE OUT HOW TO GET THE NEWDATE TO APPEND TO THE DOM! -- 
   formatDate = (feedback) => {
-    let newDate = [];
     console.log(feedback);
     for (let item of feedback) {
-      if (item.date) {
-        newDate.push(item.date.slice(0, 10));
-      }
+      // if (item.date) {
+      //   newDate.push(item.date.slice(0, 10));
+      // } 
+        this.setState({
+        newDate: item.date.slice(0, 10)
+      })
     } 
-    console.log(newDate);
-    return newDate;
-  }
+  } // end formatDate
 
   // GET ROUTE
   getFeedback = () => {
@@ -110,9 +112,8 @@ class Admin extends Component {
                   <TableCell align="center">{feedback.flagged  ? 
                       (<AssistantPhotoIcon/>) :
                       (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
-                }</TableCell>
-                      {feedback.date} ? ({this.formatDate(feedback.date)}) 
-                  <TableCell align="center" onChange={() => {this.formatDate(feedback.date)}}>{}</TableCell>
+                 }</TableCell>
+                  <TableCell align="center">{feedback.newDate}</TableCell>
                   <TableCell align="center">{feedback.feeling}</TableCell>
                   <TableCell align="center">{feedback.understanding}</TableCell>
                   <TableCell align="center">{feedback.support}</TableCell>
