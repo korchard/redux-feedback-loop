@@ -1,78 +1,75 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
-## Description
-
-Your project description goes here. What problem did you solve? How did you solve it?
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
-
-![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![REPO SIZE](https://img.shields.io/github/repo-size/korchard/redux-feedback-loop?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/korchard/redux-feedback-loop?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/korchard/redux-feedback-loop.svg?style=social)
 
 # PROJECT NAME
 
+REDUX FEEDBACK LOOP
+
 ## Description
 
-_Duration: 2 Week Sprint_
+_Duration: 12 Hours_
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
-
-Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
-
-To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
+This is a photo gallery of my life. It displays images from past to present. When an image is clicked, it flips over and the description of the life event is shared. A user may click the heart button to like the life event and the 'x' will remove the event from the gallery. New images and descriptions can be added to the gallery through the input boxes below the header and this will be stored in a database. 
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![feedback_survey](./public/images/ss1.png)
+![feedback_survey](./public/images/ss2.png)
 
-### Prerequisites
-
-Link to software that is required to install the app (e.g. node).
+### Prerequisites - dependencies
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- [postgreSQL](https://www.postgresql.org/download/)
+- [react-redux](https://redux.js.org/introduction/installation)
+- [materialUI](https://material-ui.com/getting-started/installation/)
 
-## Installation
+### SQL Requirements
+- PostgreSQL
 
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
-
-If your application has secret keys (for example --  Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the `.env` file.
-
-1. Create a database named `your database name`,
-2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
-3. Open up your editor of choice and run an `npm install`
-4. Run `npm run server` in your terminal
-5. Run `npm run client` in your terminal
+1. Create a postgres SQL database named `prime_feedback` using an app like Postico.
+2. The queries in the `data.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. 
+3. Open up your editor of choice and run an `npm install` - this will install the dependencies - `express.js`, `node.js`, `react-redux`, `react-router-dom`, `redux-logger`, `axios`, `materialUI-core`, `materialUI-icon`, `nodemon`, and `pg`.
+4. Run the server first `npm run server`.
+5. Run the client second (in a separate terminal) `npm run client`.
 6. The `npm run client` command will open up a new browser tab for you!
 
 ## Usage
-How does someone use this application? Tell a user story here.
 
-1. xxx
-2. xxx
-3. xxx
-4. xxx
-5. xxx
-6. xxx
-
+1. Users enter their feedback on four separate screens.
+2. Once a rating or comment is input, it will allow you to move to the next screen.
+3. If you want to edit your previous input, you may go to the previous page and re-input your feedback.
+4. Once you arrive at the review page, you can submit your feedback and it will be stored in a database.
+5. The admin page allows the user to review previous feedback submissions, they are listed with the most previous feedback date at the top. The user can flag the feedback for future review and remove the feedback from the database.
 
 ## Built With
 
 List technologies and frameworks here
+- HTML
+- CSS
+- javaScript
+- react
+- redux
+- node
+- axios
+- nodemon
+- express
+- postgreSQL
+- material UI-core
+- material UI-icon
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
 
-_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
+
+Thank you to Josie, for being my coding buddy. Thank you to Steven for supporting me and answering all my questions. Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to my primary instructor, 
+-[Mary Mossman](https://github.com/mbMosman)
+-[Josie Fredericksen](https://github.com/freder48)
+-[Steven Maloney](https://github.com/sdeda1us)
 
 ## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
+
+If you have suggestions or issues, please reach out to me on linkedIn [https://www.linkedin.com/in/kimberly-orchard-she-her-49b0171b9/]
