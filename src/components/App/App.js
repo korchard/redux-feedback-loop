@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// need to import to connect all the different components
 import { HashRouter as Router, Route } from 'react-router-dom'; 
-
 import Home from '../Home/Home';
 import Admin from '../Admin/Admin';
 import Feelings from '../Feelings/Feelings';
@@ -18,32 +18,32 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <header className="App-header">
-            <h1 className="App-title">Feedback Survey!</h1>
-          </header>
-          <br/>
-            <Route exact path="/" component={Home}/>
-            <Route path="/admin">
+            <header className="App-header">
+              <h1 className="App-title">Feedback Survey!</h1>
+            </header>
+            <br/>
+          <Route exact path="/" component={Home}/>
+          <Route path="/admin">
               <Admin />
-            </Route>
-            <Route path="/feelings">
+          </Route>
+          <Route path="/feelings">
               <Feelings/>
-            </Route>
-            <Route path="/understanding">
+          </Route>
+          <Route path="/understanding">
               <Understanding/>
-            </Route>
-            <Route path="/support">
+          </Route>
+          <Route path="/support">
               <Support/>
-            </Route>
-            <Route path="/comments">
+          </Route>
+          <Route path="/comments">
               <Comments/>
-            </Route>
-            <Route path="/review" >
+          </Route>
+          <Route path="/review" >
               <Review />
-            </Route>
-            <Route path="/submitted" >
+          </Route>
+          <Route path="/submitted" >
               <Submitted/>
-            </Route>
+          </Route>
         </Router>
       </div>
     );

@@ -8,12 +8,10 @@
     text-align: center;
     color: #033076;
     margin-top: 2em;
-    margin-bottom: 3em;
     font-family: monospace;
 }
 
-#standard-basic {
-    margin-top: 2em;
+#standard-label {
     font-family: monospace;
 }
 
@@ -22,8 +20,4 @@
     justify-content: center;
     font-family: monospace;
     margin-bottom: 2em;
-}
-
-.text {
-    font-family: monospace;
 }

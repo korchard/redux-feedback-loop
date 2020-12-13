@@ -1,3 +1,8 @@
+thead .MuiTableRow-root .thead .MuiTableRow-head {
+    background-color: #033076;
+    color: white;
+}
+
 .root {
     display: table-header-group;
     background-color: #033076;
