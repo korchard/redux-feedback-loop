@@ -27,6 +27,7 @@ class Feelings extends Component {
     } else {
         // dispatches the rating to the reduxStore 
         this.props.dispatch({ type: 'GET_FEELINGS', payload: this.state.feelings })
+        console.log('payload:', this.state.feelings);
         // routes the user to the next component
         this.props.history.push("/understanding");
     } // end conditional

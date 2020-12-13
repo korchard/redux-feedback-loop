@@ -14,7 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 class Understanding extends Component {
 
-  // local state to store feelings rating
+  // local state to store understanding rating
     state = {
         understanding: ''
     }
@@ -32,6 +32,7 @@ class Understanding extends Component {
     } else {
       // dispatches the rating to the reduxStore 
       this.props.dispatch({ type: 'GET_UNDERSTANDING', payload: this.state.understanding })
+      console.log('payload:', this.state.understanding);
       // routes the user to the next component
       this.props.history.push("/support");
     } // end conditional 
