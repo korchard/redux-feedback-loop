@@ -53,7 +53,7 @@ router.delete('/:id', (req, res) => {
     let id = req.params.id; // identifys which item to change by id
 
     // deletes an item from the database
-    let sqlText = `DELETE FROM "feedback" WHERE id=$1;`
+    let sqlText = `DELETE FROM "feedback" WHERE id = $1;`
     pool.query(sqlText, [id]) 
         .then((result) => { 
             res.sendStatus(200); // sends an OK - this was updated in database to client-side
