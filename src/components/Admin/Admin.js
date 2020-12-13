@@ -23,6 +23,18 @@ class Admin extends Component {
     this.getFeedback(); 
   } // end componentDidMount 
 
+  formatDate = (feedback) => {
+    let newDate = [];
+    console.log(feedback);
+    for (let item of feedback) {
+      if (item.date) {
+        newDate.push(item.date.slice(0, 10));
+      }
+    } 
+    console.log(newDate);
+    return newDate;
+  }
+
   getFeedback = () => {
     console.log('Getting feedback...');
 
@@ -32,6 +44,7 @@ class Admin extends Component {
       this.setState({
         feedback: response.data,
       })
+      this.formatDate(response.data);
     }).catch( (error)=> {
       alert('Something bad happened...');
       console.log('Bad news bears', error);
@@ -94,7 +107,7 @@ class Admin extends Component {
                   (<AssistantPhotoIcon/>) :
                   (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
                   }</TableCell>
-                <TableCell align="center">{feedback.date}</TableCell>
+                <TableCell align="center" onChange={() => {this.formatDate(feedback.date)}}>{}</TableCell>
                 <TableCell align="center">{feedback.feeling}</TableCell>
                 <TableCell align="center">{feedback.understanding}</TableCell>
                 <TableCell align="center">{feedback.support}</TableCell>
