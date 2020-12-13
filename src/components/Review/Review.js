@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Review.css';
 
+import { StylesProvider } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -35,8 +36,9 @@ class Review extends Component {
 
   render() {
     return (
-      <div>
-        <Card className="card">
+      <div className="center">
+        <StylesProvider injectFirst>
+        <Card>
           <CardContent className="cardContent">
           <h2>Review Your Feedback...</h2>
             <p>Feelings: {this.props.reduxState.feelingsReducer}</p>
@@ -45,12 +47,13 @@ class Review extends Component {
             <p>Comments: {this.props.reduxState.commentsReducer}</p>
           </CardContent>
           <CardActions className="button">
-            <Button variant="outlined" color="primary" 
+            <Button variant="outlined" color="primary" className="button"
               onClick={this.goToComments}>Previous...</Button>
-            <Button variant="outlined" color="primary" 
+            <Button variant="outlined" color="primary" className="button"
               onClick={() => this.goToSubmitted(this.props.review)}>Submit</Button>
           </CardActions>
         </Card>
+        </StylesProvider>
       </div>
     );
   }

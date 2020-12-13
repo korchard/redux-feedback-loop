@@ -1,6 +1,7 @@
-.card {
-    margin: 4em;
-    height: 40vh;
+.center {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .cardContent {
@@ -8,13 +9,16 @@
     color: #033076;
     margin-top: 2em;
     margin-bottom: 3em;
-}
-
-#standard-basic {
-    margin-top: 2em;
+    font-family: monospace;
 }
 
 .button {
     text-align: center;
     justify-content: center;
+    font-family: monospace;
+    margin-bottom: 2em;
+}
+
+h2 {
+    font-size: 2em;
 }

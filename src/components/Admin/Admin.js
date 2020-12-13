@@ -30,7 +30,7 @@ class Admin extends Component {
     .then((response) => {
       console.log('back from GET:', response.data) 
       this.setState({
-        feedback: response.data
+        feedback: response.data,
       })
     }).catch( (error)=> {
       alert('Something bad happened...');
@@ -78,7 +78,7 @@ class Admin extends Component {
           <Table className="table">
             <TableHead className="thead">
               <TableRow className="thead">
-                <TableCell align="center">Needs Further Review</TableCell>
+                <TableCell align="center"><AssistantPhotoIcon/> Needs Further Review</TableCell>
                 <TableCell align="center">Date</TableCell>
                 <TableCell align="center">Feeling</TableCell>
                 <TableCell align="center">Understanding</TableCell>
