@@ -107,6 +107,7 @@ class Admin extends Component {
                   (<AssistantPhotoIcon/>) :
                   (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
                   }</TableCell>
+                {feedback.date} ? ({this.formatDate(feedback.date)}) 
                 <TableCell align="center" onChange={() => {this.formatDate(feedback.date)}}>{}</TableCell>
                 <TableCell align="center">{feedback.feeling}</TableCell>
                 <TableCell align="center">{feedback.understanding}</TableCell>

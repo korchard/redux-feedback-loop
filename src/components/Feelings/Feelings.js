@@ -47,7 +47,7 @@ class Feelings extends Component {
              </CardContent>
              <CardActions className="button">
                 <Button variant="outlined" color="primary" className="button"
-                    onClick={this.goToUnderstanding}>Next...</Button>
+                    onClick={this.goToUnderstanding}>Next</Button>
             </CardActions>
         </Card>
         </StylesProvider>
