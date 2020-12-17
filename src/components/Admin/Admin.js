@@ -19,6 +19,7 @@ class Admin extends Component {
   // local state to store feedback received from database
   state = {
     feedback: [],
+    newDate: null
   }
 
   componentDidMount() {
@@ -113,7 +114,7 @@ class Admin extends Component {
                       (<AssistantPhotoIcon/>) :
                       (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
                  }</TableCell>
-                  <TableCell align="center">{feedback.newDate}</TableCell>
+                  <TableCell align="center">{this.state.newDate}</TableCell>
                   <TableCell align="center">{feedback.feeling}</TableCell>
                   <TableCell align="center">{feedback.understanding}</TableCell>
                   <TableCell align="center">{feedback.support}</TableCell>
