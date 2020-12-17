@@ -19,7 +19,7 @@ class Admin extends Component {
   // local state to store feedback received from database
   state = {
     feedback: [],
-    newDate: null
+    newDate: []
   }
 
   componentDidMount() {
@@ -27,17 +27,15 @@ class Admin extends Component {
     this.formatDate(this.state.feedback);
   } // end componentDidMount 
 
-  // CANNOT FIGURE OUT HOW TO GET THE NEWDATE TO APPEND TO THE DOM! -- 
+  // change the date to format correctly on the DOM
   formatDate = (feedback) => {
     console.log(feedback);
-    for (let item of feedback) {
-      // if (item.date) {
-      //   newDate.push(item.date.slice(0, 10));
-      // } 
+    for (let i = 0; i < feedback.length; i++) {
         this.setState({
-        newDate: item.date.slice(0, 10)
+          newDate: [...this.state.newDate, feedback[i].date.slice(0, 10)]
       })
     } 
+    console.log('date', this.state.newDate);
   } // end formatDate
 
   // GET ROUTE

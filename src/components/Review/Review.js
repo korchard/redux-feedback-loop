@@ -43,7 +43,7 @@ class Review extends Component {
 
   render() {
     return (
-      <div className="center">
+      <section className="center">
         <StylesProvider injectFirst>
           <Card>
             <CardContent className="cardContent">
@@ -71,7 +71,7 @@ class Review extends Component {
             </CardActions>
           </Card>
         </StylesProvider>
-      </div>
+      </section>
     );
   }
 }
