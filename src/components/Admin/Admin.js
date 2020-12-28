@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Moment from 'react-moment';
 
 // import material UI
 import { StylesProvider } from "@material-ui/core/styles";
@@ -19,24 +20,11 @@ class Admin extends Component {
   // local state to store feedback received from database
   state = {
     feedback: [],
-    newDate: []
   }
 
   componentDidMount() {
     this.getFeedback(); // displays when DOM is refreshed
-    this.formatDate(this.state.feedback);
   } // end componentDidMount 
-
-  // change the date to format correctly on the DOM
-  formatDate = (feedback) => {
-    console.log(feedback);
-    for (let i = 0; i < feedback.length; i++) {
-        this.setState({
-          newDate: [...this.state.newDate, feedback[i].date.slice(0, 10)]
-      })
-    } 
-    console.log('date', this.state.newDate);
-  } // end formatDate
 
   // GET ROUTE
   getFeedback = () => {
@@ -49,8 +37,6 @@ class Admin extends Component {
       this.setState({
         feedback: response.data,
       })
-      // trying to reformat the date
-      this.formatDate(response.data);
     }).catch( (error)=> {
       alert('Something bad happened...');
       console.log('Bad news bears', error);
@@ -112,7 +98,9 @@ class Admin extends Component {
                       (<AssistantPhotoIcon/>) :
                       (<Button onClick={() => this.flagFeedback(feedback.id)}><DoneIcon/></Button>)
                  }</TableCell>
-                  <TableCell align="center">{this.state.newDate}</TableCell>
+                  <TableCell align="center">
+                      <Moment format="MM/DD/YYYY">{feedback.date}</Moment>
+                  </TableCell>
                   <TableCell align="center">{feedback.feeling}</TableCell>
                   <TableCell align="center">{feedback.understanding}</TableCell>
                   <TableCell align="center">{feedback.support}</TableCell>

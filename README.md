@@ -30,7 +30,7 @@ This is a photo gallery of my life. It displays images from past to present. Whe
 
 1. Create a postgres SQL database named `prime_feedback` using an app like Postico.
 2. The queries in the `data.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. 
-3. Open up your editor of choice and run an `npm install` - this will install the dependencies - `express.js`, `node.js`, `react-redux`, `react-router-dom`, `redux-logger`, `axios`, `materialUI-core`, `materialUI-icon`, `nodemon`, and `pg`.
+3. Open up your editor of choice and run an `npm install` - this will install the dependencies - `express.js`, `node.js`, `react-redux`, `react-router-dom`, `redux-logger`, `axios`, `materialUI-core`, `materialUI-icon`, `nodemon`, `react-moment`, and `pg`.
 4. Run the server first `npm run server`.
 5. Run the client second (in a separate terminal) `npm run client`.
 6. The `npm run client` command will open up a new browser tab for you!
@@ -58,6 +58,7 @@ List technologies and frameworks here
 - postgreSQL
 - material UI-core
 - material UI-icon
+- react-moment
 
 ## License
 
