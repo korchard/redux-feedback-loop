@@ -11,7 +11,7 @@ REDUX FEEDBACK LOOP
 
 _Duration: 12 Hours_
 
-This is a photo gallery of my life. It displays images from past to present. When an image is clicked, it flips over and the description of the life event is shared. A user may click the heart button to like the life event and the 'x' will remove the event from the gallery. New images and descriptions can be added to the gallery through the input boxes below the header and this will be stored in a database. 
+This is a feedback survey that allows the user to provide a 1 - 5 scaled answer to the questions. They are able to go back and re-submit their answers if they choose to change an answer before submitting the completed survey. There is an admin view that accessible, which displays all of the completed feedback surveys. Admin may flag feedback for future review.
 
 ## Screen Shot
 
